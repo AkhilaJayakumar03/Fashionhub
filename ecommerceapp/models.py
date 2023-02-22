@@ -34,7 +34,7 @@ class cart(models.Model):
     productname = models.CharField(max_length=30)
     productprice = models.IntegerField()
     description = models.CharField(max_length=100)
-    productimage = models.ImageField(upload_to='ecommerceapp/static')
+    productimage = models.ImageField()
     userid = models.IntegerField()
     def __str__(self):
         return self.productname
@@ -44,7 +44,7 @@ class wishlist(models.Model):
     productname = models.CharField(max_length=30)
     productprice = models.IntegerField()
     description = models.CharField(max_length=100)
-    productimage = models.ImageField(upload_to='ecommerceapp/static')
+    productimage = models.ImageField()
     userid=models.IntegerField()
     def __str__(self):
         return self.productname
@@ -54,7 +54,7 @@ class buy(models.Model):
     productname = models.CharField(max_length=30)
     productprice = models.IntegerField()
     description = models.CharField(max_length=100)
-    productimage = models.ImageField(upload_to='ecommerceapp/static')
+    productimage = models.ImageField()
     quantity = models.IntegerField()
     def __str__(self):
         return self.productname
