@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <style>
+
+.navbar{
+            background-color: rgb(43, 41, 41);
+
+        }
+
+.x{
+  text-decoration: none;
+  color:red;
+}
+.x:hover{
+  color:red;}
+.c{
+  text-decoration: none;
+  color:white;
+
+}
+.c:hover{
+    color: red;
+}
+.fa-brands{
+  color: red;
+}
+.p{
+    text-decoration: none;
+    color:white;
+}
+.p:hover{
+  color:red;
+}
+#h{
+  padding-left: 80px;
+}
+
+.k{
+  margin-left:30px;
+}
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4f163060e5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body  class="bg-light">
+  <div><header>
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/ecommerceapp/index/"><i style="color:red">Fashion</i> <i style="color:white">Hub</i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" >
+              <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/home/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Login
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shoplogin/">Shop Login</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userlogin/">User Login</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Register
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shopregister/">Shop Register</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userregister/">User Register</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/contact/">Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+              <a  class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/cartdisplay/"><i class="fa-solid fa-cart-shopping fa-1x"></i></a>&nbsp;&nbsp;
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&nbsp;&nbsp;
+          <button class="btn text-light"><i class=" fa-sharp fa-solid fa-magnifying-glass"></i></button>
+
+          </form>
+        </div>
+      </div>
+    </nav>
+      </header>
+      <br><br><br>
+       <div>
+        <h4 align="center" class="p-2"><i>Fashion Hub</i></h4><br>
+        <div class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+             <div class="carousel-item-active">
+                  <img src="{% static 'ecommerceapp/images/img49.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="{% static 'ecommerceapp/images/img85.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'ecommerceapp/images/img86.jpg' %}" class="d-block w-100" alt="...">
+                  </div>
+
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            </div>
+      </div>
+      <br>
+
+    <br>
+    <div>
+        <h4 class="k">Top Brands</h4>
+      <h6 class="k">In The Spotlight</h6>
+    <center>
+      <div class="row">
+        <!-- first card -->
+        <div class="col">
+            <div class="card" style="width: 25rem">
+                <img src="{% static 'ecommerceapp/images/img46.jpg' %}"class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h6 class="card-title">Up To 50% Off + Free Kajal</h6>
+                  <p class="card-text">Bestsellers of 2022</p>
+
+                </div>
+              </div>
+        </div>
+        <!-- second -->
+        <div class="col">
+            <div class="card" style="width: 25rem">
+                <img src="{% static 'ecommerceapp/images/img47.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h6 class="card-title">For Longer, Thicker, Better Hair</h6>
+                  <p class="card-text">Free Hair Mask on ₹1499</p>
+
+                </div>
+              </div>
+        </div>
+        <!-- third -->
+        <div class="col">
+            <div class="card" style="width: 25rem">
+                <img src="{% static 'ecommerceapp/images/img48.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h6 class="card-title">Up To 35% Off</h6>
+                  <p class="card-text">  Makeup That Fits Me As I Am!</p>
+
+                </div>
+              </div>
+        </div>
+    </div>
+</center>
+    </div>
+    <br>
+    <div>
+        <h4 class="k">Discover Our Favourites</h4>
+        <h6 class="k">Selection Of Our Finest 10 Products</h6>
+        <center>
+        <div class="row">
+            <!-- first card -->
+            <div class="col">
+                <div class="card" style="width: 15rem">
+                    <img src="{% static 'ecommerceapp/images/img42.jpg' %}"class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Body Lotions</h6>
+                    </div>
+                  </div>
+            </div>
+            <!-- second -->
+            <div class="col">
+                <div class="card" style="width: 15rem">
+                    <img src="{% static 'ecommerceapp/images/img43.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Highlighters</h6>
+                    </div>
+                  </div>
+            </div>
+            <!-- third -->
+            <div class="col">
+                <div class="card" style="width: 15rem">
+                    <img src="{% static 'ecommerceapp/images/img44.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Bridal Makeup</h6>
+                     </div>
+                  </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 15rem">
+                    <img src="{% static 'ecommerceapp/images/img45.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Fragrances</h6>
+                    </div>
+                  </div>
+            </div>
+          </center>
+    </div>
+    <br>
+    <div class="row"  style="background-color: rgb(43, 41, 41);color:white;" >
+
+  <div class="col-lg-3 col-md-6 col-sm-12" id="h">
+    <h2>Useful links</h2>
+    <ul type="none">
+      <li><a href="home.html"  class="p">Home</a></li>
+      <li><a href="login.html"  class="p">Login</a></li>
+      <li><a href="register.html"  class="p">Register</a></li>
+      <li><a href="about.html"  class="p">About</a></li>
+      <li><a href="contact.html"  class="p">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <h2>Address</h2>
+    <p id="f">London, UK<br>
+      998 13h Street, Office 436<br>
+      Harlo 61466<br>
+      +(21) 255 999 8888<br>
+      fashionhub@gmail.com</p>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <ul type="none">
+      <h2>Information</h2>
+      <li><a class="c" href="#">Terms and Conditions</a></li>
+       <li><a class="c" href="#">Shipping Policy</a></li>
+       <li><a class="c" href="#">Cancellation Policy</a></li>
+       <li><a class="c" href="#">Privacy Policy</a></li>
+     </ul>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-12">
+      <h2>Payment methods</h2>
+      <br>
+      <i class="fa-brands fa-cc-mastercard fa-2x"></i>&nbsp;&nbsp;&nbsp;
+      <i class="fa-brands fa-cc-paypal fa-2x"></i>&nbsp;&nbsp; &nbsp;
+      <i class="fa-brands fa-cc-visa fa-2x"></i>&nbsp;&nbsp;&nbsp;
+      <i class="fa-brands fa-cc-discover fa-2x"></i><br><br>
+  </div>
+  <hr>
+  <center><p class="pb-1 text-light"> © 2023 Fashionhub E-Retail Pvt. Ltd. All Rights Reserved.</p>
+    <div class="container" >
+    <i class="fa-brands fa-facebook fa-2x"></i>&nbsp;&nbsp;&nbsp;
+    <i class="fa-brands fa-twitter fa-2x"></i>&nbsp;&nbsp; &nbsp;
+    <i class="fa-brands fa-instagram fa-2x"></i>&nbsp;&nbsp;&nbsp;
+    <i class="fa-brands fa-linkedin fa-2x"></i><br><br>
+    </div>
+    </center>
+</div>
+
+</body>
+</html>
