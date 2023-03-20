@@ -30,7 +30,8 @@ urlpatterns=[
     path('payment/',payment),
     path('usernotification/',usernotification),
     path('shopnotification/',shopnotification),
-    path('wishlisttocart/<int:id>',wishlisttocart)
+    path('wishlisttocart/<int:id>',wishlisttocart),
+    path('logout/',logout)
 
 
 

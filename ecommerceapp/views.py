@@ -11,6 +11,7 @@ import os
 from django.contrib.auth.models import User
 from django.contrib import messages
 import uuid
+from django.contrib.auth import logout
 
 
 # Create your views here.
@@ -281,7 +282,7 @@ def addtocart(request,id):
     c=request.session['id']
     a = fileupmodel.objects.get(id=id)
     if cart.objects.filter(productname=a.productname) :
-        return HttpResponse("already in cart")
+        return render(request,"itemalreadyincart.html")
     b = cart(userid=c,productname=a.productname,productprice=a.productprice,description=a.description,productimage=a.productimage)
     b.save()
     return HttpResponse("item added to cart successfully....")
@@ -316,7 +317,7 @@ def addtowishlist(request,id):
     o = request.session['id']
     a = fileupmodel.objects.get(id=id)
     if wishlist.objects.filter(productname=a.productname):
-        return HttpResponse("already in wishlist")
+        return render(request,"itemalreadyinwishlist.html")
     b = wishlist(userid=o,productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
     b.save()
     return HttpResponse("item added to wishlist successfully....")
@@ -351,7 +352,7 @@ def wishlisttocart(request,id):
     a = wishlist.objects.get(id=id)
     o = request.session['id']
     if cart.objects.filter(productname=a.productname):
-        return HttpResponse(" item already in cart")
+        return render(request,"itemalreadyincart.html")
     b = cart(userid=o,productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
     b.save()
     return HttpResponse("item added cart successfullyy....")
@@ -427,6 +428,9 @@ def shopnotification(request):
     mylist=zip(cn,dt,usid)
     return render(request,"shopnoti.html",{'mylist':mylist})
 
+
+def logout(request):
+    return redirect(index)
 
 
 

@@ -3,13 +3,19 @@
 {% load static %}
 <head>
     <style>
-    #b{
-        height:750px;
-      width:500px;
-      padding:50px;
-       margin:30px 550px;
+.form{
+        height:800px;
+        width:500px;
+        padding:50px;
         border: 2px;
         border-radius: 20px;
+        position: relative;
+      margin:auto;
+        }
+        #b{
+<!--          width:360px;-->
+        padding: 8% 0 0;
+        margin: auto;
         }
    .navbar{
         background-color: rgb(43, 41, 41);
@@ -60,64 +66,57 @@ color:red;
 <body style="background-image:url({% static 'ecommerceapp/images/img59.jpg' %});background-size: cover;">
 <div>
     <header>
-        <nav class="navbar fixed-top navbar-expand-lg">
+        <nav class="navbar fixed-top  navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/ecommerceapp/index/"><i style="color:red">Fashion</i> <i style="color:white">Hub</i></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="a" class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item ">
-                            <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/home/">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                Login
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shoplogin/">Shop
-                                    Login</a></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userlogin/">User
-                                    Login</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                Register
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shopregister/">Shop
-                                    Register</a></li>
-                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userregister">User
-                                    Register</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/about/">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light"
-                               href="http://127.0.0.1:8000/ecommerceapp/contact/">Contact</a>
-                        </li>
+              <a class="navbar-brand" href="http://127.0.0.1:8000/ecommerceapp/index/"><i style="color:red">Fashion</i> <i style="color:white">Hub</i></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item " >
+                    <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/home/">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Login
+                    </a>
+                    <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shoplogin/">Shop Login</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userlogin/">User Login</a></li>
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Admin</a></li>
                     </ul>
-                    <form class="d-flex">
-                        <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/cartdisplay/"><i class="fa-solid fa-cart-shopping fa-1x"></i></a>&nbsp;&nbsp;
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&nbsp;&nbsp;
-                        <button class="btn text-light"><i class=" fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Register
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shopregister/">Shop Register</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userregister/">User Register</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/about/">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/contact/">Contact</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                    <a  class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/cartdisplay/"><i class="fa-solid fa-cart-shopping fa-1x"></i></a>&nbsp;&nbsp;
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&nbsp;&nbsp;
+                <button class="btn text-light"><i class=" fa-sharp fa-solid fa-magnifying-glass"></i></button>
 
-                    </form>
-                </div>
+                </form>
+              </div>
             </div>
-        </nav>
+          </nav>
     </header>
 </div>
-<br><br>
-<div id="b" class="shadow">
+<br><br><br>
+<div id="b">
+    <div class="form shadow">
 {% if messages %}
     {% for message in messages %}
     <div  class="alert alert-info">
@@ -165,9 +164,9 @@ color:red;
     </form>
 </div>
 </div>
-<div class="row p-4"  style="background-color: rgb(43, 41, 41);color:white;" >
-
-  <div class="col-lg-3 col-md-6 col-sm-12" id="h">
+<br>
+<div class="row p-4"  style="background-color: rgb(43, 41, 41);color:white;">
+  <div class="col-lg-3 col-md-6 col-sm-12"> <!--id="h"-->
     <h2>Useful links</h2>
     <ul type="none">
       <li><a href="home.html"  class="p">Home</a></li>
@@ -177,10 +176,9 @@ color:red;
       <li><a href="contact.html"  class="p">Contact</a></li>
     </ul>
   </div>
-
   <div class="col-lg-3 col-md-6 col-sm-12">
     <h2>Address</h2>
-    <p id="f">London, UK<br>
+    <p>London, UK<br>
       998 13h Street, Office 436<br>
       Harlo 61466<br>
       +(21) 255 999 8888<br>
@@ -202,9 +200,7 @@ color:red;
       <i class="fa-brands fa-cc-paypal fa-2x"></i>&nbsp;&nbsp; &nbsp;
       <i class="fa-brands fa-cc-visa fa-2x"></i>&nbsp;&nbsp;&nbsp;
       <i class="fa-brands fa-cc-discover fa-2x"></i><br><br>
-
   </div>
-
   <hr>
   <center><p class="pb-1 text-light"> © 2023 Fashionhub E-Retail Pvt. Ltd. All Rights Reserved.</p>
     <div class="container" >
@@ -215,6 +211,5 @@ color:red;
     </div>
     </center>
 </div>
-
 </body>
 </html>
