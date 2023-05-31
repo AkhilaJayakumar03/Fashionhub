@@ -104,8 +104,16 @@ margin:100px;
       </nav>
           </header>
 <br><br><br>
+<a href="http://127.0.0.1:8000/ecommerceapp/userinter/" class="btn" style="float:right"><i class="fa-solid fa-xmark fa-2x"></i></a>
 
 <div id="m" class="row">
+      {% if messages %}
+    <div  class="alert alert-info">
+     {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    </div>
+{% endif %}
 {% for i,j,k,l,m,n in mylist %}
   {% if usid == n %}
 <div class="col-lg-4 col-md-8 col-sm-12 p-4">
@@ -115,7 +123,6 @@ margin:100px;
     <h5 class="card-title">{{j}}</h5>
     <p class="card-text">{{k}}</p>
       <p class="card-text">{{l}}</p>
-
     <a href="http://127.0.0.1:8000/ecommerceapp/wishitemremove/{{m}}" class="btn" style="background-color:red;color:white;float:left">Remove</i></a>
       <a href="http://127.0.0.1:8000/ecommerceapp/wishlisttocart/{{m}}" class="btn" style="background-color:green;color:white;float:right;"><i class="fa-solid fa-cart-shopping"></i></a>
   </div>
@@ -125,18 +132,6 @@ margin:100px;
 {% endfor %}
 </div>
 
-<div class="row p-4"  style="background-color: rgb(43, 41, 41);color:white;" >
-
-  <div class="col-lg-3 col-md-6 col-sm-12" id="h">
-    <h2>Useful links</h2>
-    <ul type="none">
-      <li><a href="home.html"  class="p">Home</a></li>
-      <li><a href="login.html"  class="p">Login</a></li>
-      <li><a href="register.html"  class="p">Register</a></li>
-      <li><a href="about.html"  class="p">About</a></li>
-      <li><a href="contact.html"  class="p">Contact</a></li>
-    </ul>
-  </div>
 <div class="row p-4"  style="background-color: rgb(43, 41, 41);color:white;">
   <div class="col-lg-3 col-md-6 col-sm-12"> <!--id="h"-->
     <h2>Useful links</h2>

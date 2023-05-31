@@ -102,13 +102,17 @@ margin:100px;
         </div>
       </nav>
           </header>
-
-
-
+<a href="http://127.0.0.1:8000/ecommerceapp/userinter/" class="btn" style="float:right"><i class="fa-solid fa-xmark fa-2x"></i></a>
 <div id="o" class="row">
+        {% if messages %}
+    <div  class="alert alert-info">
+     {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    </div>
+{% endif %}
 {% for i,j,k,l,m,n in mylist %}
     {% if usid == n %}
-
 <div class="col-lg-4 col-md-8 col-sm-12 p-4">
 <div class="card" style="width: 18rem;">
   <img src="{% static i %}" height="200px" width="200px" class="card-img-top" alt="...">

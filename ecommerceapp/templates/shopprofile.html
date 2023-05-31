@@ -29,9 +29,7 @@ margin-bottom:100px;
 .c:hover{
     color: red;
 }
-.fa-brands{
-  color: red;
-}
+
 .p{
     text-decoration: none;
     color:white;
@@ -74,55 +72,7 @@ margin-bottom:100px;
 </head>
 
 <body  class="bg-light">
-    <div><header>
-      <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="http://127.0.0.1:8000/ecommerceapp/index/"><i style="color:red">Fashion</i> <i style="color:white">Hub</i></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div  id="a" class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item " >
-                <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/home/">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shoplogin/">Shop Login</a></li>
-                  <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userlogin/">User Login</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Register
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/shopregister/">Shop Register</a></li>
-                  <li><a class="dropdown-item" href="http://127.0.0.1:8000/ecommerceapp/userregister/">User Register</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/about/">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/contact/">Contact</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-                <a  class="nav-link text-light" href="http://127.0.0.1:8000/ecommerceapp/cartdisplay/"><i class="fa-solid fa-cart-shopping fa-1x"></i></a>&nbsp;&nbsp;
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&nbsp;&nbsp;
-            <button class="btn text-light"><i class=" fa-sharp fa-solid fa-magnifying-glass"></i></button>
-
-            </form>
-          </div>
-        </div>
-      </nav>
-          </header>
-
-        <br><br>
+    <div>
                <div id="l">
               <i id="k" class="fa-solid fa-bars"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
           </div>
@@ -135,11 +85,11 @@ margin-bottom:100px;
                 <div class="offcanvas-body">
                  <ul type="none">
                   <li> <a href="http://127.0.0.1:8000/ecommerceapp/index/" class="i"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</a></li><br>
-                   <li><a href="http://127.0.0.1:8000/ecommerceapp/shopprofile/" class="i"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Shop</a></li><br>
-                  <li><a href="http://127.0.0.1:8000/ecommerceapp/viewallproducts/" class="i"><i class="fa-solid fa-heart"></i>&nbsp;&nbsp;View all productts</a></li><br>
-                  <li><a href="http://127.0.0.1:8000/ecommerceapp/productdisplay/" class="i"><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;View posted products</a></li><br>
+                   <li><a href="http://127.0.0.1:8000/ecommerceapp/shopprofile/" class="i"><i class="fa-solid fa-shop"></i>&nbsp;&nbsp;Shop</a></li><br>
+                  <li><a href="http://127.0.0.1:8000/ecommerceapp/viewallproducts/" class="i"><i class="fa-brands fa-product-hunt"></i>&nbsp;&nbsp;View all products</a></li><br>
+                  <li><a href="http://127.0.0.1:8000/ecommerceapp/productdisplay/" class="i"><i class="fa-brands fa-product-hunt"></i>&nbsp;&nbsp;View posted products</a></li><br>
                      <li><a href="http://127.0.0.1:8000/ecommerceapp/shopnotification/" class="i"><i class="fa-solid fa-bell"></i>&nbsp;&nbsp;Notifications</a></li><br>
-                   <li><a href="http://127.0.0.1:8000/ecommerceapp/logout/"class="i"><i class="fa-sharp fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a></li><br>
+                   <li><a href="http://127.0.0.1:8000/ecommerceapp/shoplogout/"class="i"><i class="fa-sharp fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a></li><br>
                   </ul>
                 </div>
               </div>
@@ -180,51 +130,6 @@ margin-bottom:100px;
                 </div>
                 </center>
 
-  <div class="row p-4"  style="background-color: rgb(43, 41, 41);color:white;">
-  <div class="col-lg-3 col-md-6 col-sm-12"> <!--id="h"-->
-    <h2>Useful links</h2>
-    <ul type="none">
-      <li><a href="home.html"  class="p">Home</a></li>
-      <li><a href="login.html"  class="p">Login</a></li>
-      <li><a href="register.html"  class="p">Register</a></li>
-      <li><a href="about.html"  class="p">About</a></li>
-      <li><a href="contact.html"  class="p">Contact</a></li>
-    </ul>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-12">
-    <h2>Address</h2>
-    <p>London, UK<br>
-      998 13h Street, Office 436<br>
-      Harlo 61466<br>
-      +(21) 255 999 8888<br>
-      fashionhub@gmail.com</p>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-12">
-    <ul type="none">
-      <h2>Information</h2>
-      <li><a class="c" href="#">Terms and Conditions</a></li>
-       <li><a class="c" href="#">Shipping Policy</a></li>
-       <li><a class="c" href="#">Cancellation Policy</a></li>
-       <li><a class="c" href="#">Privacy Policy</a></li>
-     </ul>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-12">
-      <h2>Payment methods</h2>
-      <br>
-      <i class="fa-brands fa-cc-mastercard fa-2x"></i>&nbsp;&nbsp;&nbsp;
-      <i class="fa-brands fa-cc-paypal fa-2x"></i>&nbsp;&nbsp; &nbsp;
-      <i class="fa-brands fa-cc-visa fa-2x"></i>&nbsp;&nbsp;&nbsp;
-      <i class="fa-brands fa-cc-discover fa-2x"></i><br><br>
-  </div>
-  <hr>
-  <center><p class="pb-1 text-light"> © 2023 Fashionhub E-Retail Pvt. Ltd. All Rights Reserved.</p>
-    <div class="container" >
-    <i class="fa-brands fa-facebook fa-2x"></i>&nbsp;&nbsp;&nbsp;
-    <i class="fa-brands fa-twitter fa-2x"></i>&nbsp;&nbsp; &nbsp;
-    <i class="fa-brands fa-instagram fa-2x"></i>&nbsp;&nbsp;&nbsp;
-    <i class="fa-brands fa-linkedin fa-2x"></i><br><br>
-    </div>
-    </center>
-</div>
+
 </body>
 </html>

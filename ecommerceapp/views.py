@@ -25,8 +25,6 @@ def contact(request):
 def home(request):
     return render(request,"home.html")
 
-def login(request):
-    return render(request,"login.html")
 
 def register(request):
     return render(request,"register.html")
@@ -47,7 +45,9 @@ def shoplogin(request):
                     request.session['id']=i.id
                     return redirect(shopprofile)
             else:
-                return HttpResponse("login failed")
+                messages.success(request, "Username or passsword wrong")
+        else:
+            messages.success(request, "Please enter password")
     return render(request,"shoplogin.html")
 
 def shopregister(request):
@@ -63,21 +63,25 @@ def shopregister(request):
             cp = a.cleaned_data["confirmpassword"]
             if ps == cp:
                 b = shopregmodel(shopname=sn,location=ln,shopid=si,email=em,phonenumber=ph,password=ps)
+                if shopregmodel.objects.filter(shopname=sn).first():
+                    messages.success(request, "shop already registered...")
+                    return redirect(shopregister)
+                elif shopregmodel.objects.filter(shopid=si).first():
+                    messages.success(request, "shop already registered...")
+                    return redirect(shopregister)
                 b.save()
+                messages.success(request, "Registration success..Now you can login")
                 return redirect(shoplogin)
             else:
-                return HttpResponse("password doesn't match")
+                messages.success(request,"password doesn't match")
         else:
-            return HttpResponse("registration failed")
+            messages.success(request,"registration failed")
     return render(request,"shopregister.html")
-
-
-
 
 def fileupload(request):
     if request.method == 'POST':
         a = fileupform(request.POST, request.FILES)
-        id=request.session['id']
+        id = request.session['id']
         if a.is_valid():
             pn=a.cleaned_data["productname"]
             pr=a.cleaned_data["productprice"]
@@ -85,9 +89,9 @@ def fileupload(request):
             pm=a.cleaned_data["productimage"]
             b=fileupmodel(shopid=id,productname=pn,productprice=pr,description=ds,productimage=pm)
             b.save()
-            return HttpResponse("file upload successfully.....")
+            messages.success(request,"product upload successfully.....")
         else:
-            return HttpResponse("file upload failed")
+            messages.success(request,"product upload failed.....")
     return render(request,"fileupload.html")
 
 def shopprofile(request):
@@ -124,6 +128,7 @@ def productdisplay(request):
 def productdelete(request,id):
     a=fileupmodel.objects.get(id=id)
     a.delete()
+    messages.success(request, "product deleted..")
     return redirect(productdisplay)
 
 def productedit(request,id):
@@ -138,6 +143,7 @@ def productedit(request,id):
         a.productprice=request.POST.get("productprice")
         a.description=request.POST.get("description")
         a.save()
+        messages.success(request, "product updated..")
         return redirect(productdisplay)
     return render(request,'productedit.html',{'a':a,'im':im})
 
@@ -180,7 +186,7 @@ def userregister(request):
          #only the rows that matches the search term
           #it will get first object from filter query.
             messages.success(request,'username already taken')
-           #message.success:is a framework that allows you to storemessages in one request and retrive them in the request page
+           #message.success:is a framework that allows you to store messages in one request and retrive them in the request page
             return redirect(userregister)
         if User.objects.filter(email=email).first():
             messages.success(request,'email already exists')
@@ -231,7 +237,6 @@ def userlogin(request):
         password=request.POST.get('password')
         request.session['username']=username
         user_obj=User.objects.filter(username=username).first()
-        request.session['id']=user_obj.id
         if user_obj is None:
             messages.success(request,"user not found")
             return redirect(userlogin)
@@ -243,6 +248,7 @@ def userlogin(request):
         if user is None:
             messages.success(request,'wrong password or username')
             return redirect(userlogin)
+        request.session['id'] = user_obj.id
         return redirect(userinter)
     return render(request,"userlogin.html")
 
@@ -281,11 +287,12 @@ def viewproduct(request):
 def addtocart(request,id):
     c=request.session['id']
     a = fileupmodel.objects.get(id=id)
-    if cart.objects.filter(productname=a.productname) :
+    if cart.objects.filter(userid=c,productname=a.productname):
         return render(request,"itemalreadyincart.html")
     b = cart(userid=c,productname=a.productname,productprice=a.productprice,description=a.description,productimage=a.productimage)
+    messages.success(request,"item added to cart successfully....")
     b.save()
-    return HttpResponse("item added to cart successfully....")
+    return redirect(viewproduct)
 
 
 def cartdisplay(request):
@@ -316,11 +323,12 @@ def cartdisplay(request):
 def addtowishlist(request,id):
     o = request.session['id']
     a = fileupmodel.objects.get(id=id)
-    if wishlist.objects.filter(productname=a.productname):
+    if wishlist.objects.filter(userid=o,productname=a.productname):
         return render(request,"itemalreadyinwishlist.html")
     b = wishlist(userid=o,productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
     b.save()
-    return HttpResponse("item added to wishlist successfully....")
+    messages.success(request,"item added to wishlist successfully....")
+    return redirect(viewproduct)
 
 def wishdisplay(request):
     usid = request.session['id']
@@ -351,21 +359,24 @@ def wishdisplay(request):
 def wishlisttocart(request,id):
     a = wishlist.objects.get(id=id)
     o = request.session['id']
-    if cart.objects.filter(productname=a.productname):
+    if cart.objects.filter(userid=o,productname=a.productname):
         return render(request,"itemalreadyincart.html")
     b = cart(userid=o,productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
     b.save()
-    return HttpResponse("item added cart successfullyy....")
+    messages.success(request,"item added to cart successfully....")
+    return redirect(wishdisplay)
 
 
 def cartitemremove(request,id):
     a = cart.objects.get(id=id)
     a.delete()
+    messages.success(request, "item removed from cart")
     return redirect(cartdisplay)
 
 def wishitemremove(request,id):
     a = wishlist.objects.get(id=id)
     a.delete()
+    messages.success(request,"item removed from wishlist")
     return redirect(wishdisplay)
 
 def cartbuy(request,id):
@@ -429,9 +440,12 @@ def shopnotification(request):
     return render(request,"shopnoti.html",{'mylist':mylist})
 
 
-def logout(request):
-    return redirect(index)
+def user_logout(request):
+    logout(request)
+    return render(request,"index.html")
 
+def shop_logout(request):
+    return render(request,"index.html")
 
 
 

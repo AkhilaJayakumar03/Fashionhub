@@ -38,7 +38,7 @@
 }
 
       .form{
-        height:500px;
+        height:550px;
         width:400px;
         padding:50px;
         border: 2px;
@@ -119,6 +119,13 @@
           <div>
    <div  id="b">
        <div class="form shadow">
+   {% if messages %}
+    <div  class="alert alert-danger">
+     {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    </div>
+{% endif %}
     <div class="mb-3">
         <h3 align="center"><strong>
            Shop Login

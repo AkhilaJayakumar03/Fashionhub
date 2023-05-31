@@ -102,8 +102,15 @@ margin:100px;
         </div>
       </nav>
           </header>
-
+        <a href="http://127.0.0.1:8000/ecommerceapp/shopprofile/" class="btn bg-light" style="float:right"><i class="fa-solid fa-xmark fa-2x"></i></a>
 <div id="o" class="row">
+     {% if messages %}
+    <div  class="alert alert-info">
+     {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    </div>
+{% endif %}
   <!--  n:shop id iteration variable-->
 {% for i,j,k,l,m,n in mylist %}
   {% if shpid == n %}
