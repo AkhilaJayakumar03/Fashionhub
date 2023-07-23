@@ -8,7 +8,7 @@
 
         }
     #b{
-        height:550px;
+        height:600px;
       width:400px;
       padding:25px;
        margin:30px 550px;
@@ -98,6 +98,13 @@
       <br><br><br>
       <a href="http://127.0.0.1:8000/ecommerceapp/shopprofile/" class="btn bg-light" style="float:right"><i class="fa-solid fa-xmark fa-2x"></i></a>
    <div  id="b" class="bg-white shadow">
+       {% if messages %}
+    {% for message in messages %}
+    <div  class="alert alert-info">
+        {{message}}
+    {% endfor %}
+    </div>
+{% endif %}
     <div class="mb-3">
         <h3 align="center"><strong>
            Upload product

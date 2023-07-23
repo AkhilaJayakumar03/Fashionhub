@@ -357,11 +357,11 @@ def wishdisplay(request):
 
 
 def wishlisttocart(request,id):
-    a = wishlist.objects.get(id=id)
     o = request.session['id']
+    a = wishlist.objects.get(id=id)
     if cart.objects.filter(userid=o,productname=a.productname):
         return render(request,"itemalreadyincart.html")
-    b = cart(userid=o,productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
+    b = cart(userid=o, productname=a.productname, productprice=a.productprice, description=a.description,productimage=a.productimage)
     b.save()
     messages.success(request,"item added to cart successfully....")
     return redirect(wishdisplay)
