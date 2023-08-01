@@ -232,6 +232,8 @@ def verify(request,auth_token):
 
 
 def userlogin(request):
+    if 'id' in request.session:
+        return redirect(userinter)
     if request.method=='POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -254,10 +256,11 @@ def userlogin(request):
 
 
 def userinter(request):
-    username=request.session['username']
-    b=request.session['id']
-    return render(request,"userinterface.html",{'username':username,'b':b})
-
+    if 'id' in request.session:
+        username=request.session['username']
+        b=request.session['id']
+        return render(request,"userinterface.html",{'username':username,'b':b})
+    return redirect(userlogin)
 
 def success(request):
     return render(request,"success.html")
@@ -296,29 +299,32 @@ def addtocart(request,id):
 
 
 def cartdisplay(request):
-    usid = request.session['id']
-    a = cart.objects.all()
-    pdtnm = []
-    pdtpr = []
-    pdtds = []
-    pdtim = []
-    pdtid = []
-    userid=[]
-    for i in a:
-        uid=i.userid
-        userid.append(uid)
-        id = i.id
-        pdtid.append(id)
-        pm = i.productimage
-        pdtim.append(str(pm).split('/')[-1])
-        pn = i.productname
-        pdtnm.append(pn)
-        pr = i.productprice
-        pdtpr.append(pr)
-        ds = i.description
-        pdtds.append(ds)
-    mylist = zip(pdtim, pdtnm, pdtpr, pdtds, pdtid,userid)
-    return render(request, "cartdisplay.html", {'mylist': mylist,'usid':usid})
+    if 'id' in request.session:
+        usid = request.session['id']
+        a = cart.objects.all()
+        pdtnm = []
+        pdtpr = []
+        pdtds = []
+        pdtim = []
+        pdtid = []
+        userid = []
+        for i in a:
+            uid = i.userid
+            userid.append(uid)
+            id = i.id
+            pdtid.append(id)
+            pm = i.productimage
+            pdtim.append(str(pm).split('/')[-1])
+            pn = i.productname
+            pdtnm.append(pn)
+            pr = i.productprice
+            pdtpr.append(pr)
+            ds = i.description
+            pdtds.append(ds)
+        mylist = zip(pdtim, pdtnm, pdtpr, pdtds, pdtid, userid)
+        return render(request, "cartdisplay.html", {'mylist': mylist, 'usid': usid})
+    return redirect(userlogin)
+
 
 def addtowishlist(request,id):
     o = request.session['id']
@@ -441,7 +447,9 @@ def shopnotification(request):
 
 
 def user_logout(request):
-    logout(request)
+    if 'id' in request.session:
+        request.session.flush()
+        logout(request)
     return render(request,"index.html")
 
 def shop_logout(request):
